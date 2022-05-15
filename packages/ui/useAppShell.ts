@@ -1,4 +1,4 @@
-import createStore from "zustand/react";
+import createStore from "zustand";
 import {persist} from "zustand/middleware";
 
 type Store = {

@@ -21,15 +21,17 @@ export const Shell: React.FC<{title: string}> = ({ title, children }) => {
                 main: {
                     background: theme.colorScheme == "dark"
                         ? theme.colors.dark[8]
-                        : theme.colors.grey[0]
+                        : theme.colors.gray[0]
                 }
             }}
             header={
                 <Header
-                    height={60}
-                    p="xs"
+                    height={80}
                     style={{
-                        background: theme.colors.blue[5]
+                        display: "flex",
+                        background: theme.colors.blue[5],
+                        alignItems: "center",
+                        padding: "0 20px"
                     }}
                  >
                      <Title 
@@ -40,8 +42,12 @@ export const Shell: React.FC<{title: string}> = ({ title, children }) => {
                          <Box sx={{ display:"flex" }}>
                              <Title
                                 mr="md"
-                                sx={{color:"white"}}
-                                >{user}-{score}</Title>
+                                sx={{
+                                    color:"white",
+                                    fontSize: "24px"
+                                }}
+                                >{user} ({score})</Title>
+                                <Button variant="light" onClick={() => setUser(null)}>Logout</Button>
                          </Box>
                      ))}
                      {(!user && (
