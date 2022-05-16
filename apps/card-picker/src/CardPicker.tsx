@@ -11,6 +11,10 @@ export const CardPicker = () => {
     const [played, setPlayed] = useState<number | null>();
 
     const { user, addToScore } = useAppShell();
+    const handleReset = () => {
+        setPlayed(null);
+        setCards(shuffle(OPTIONS));
+    }
 
     if (!user)
         return null;
@@ -59,9 +63,7 @@ export const CardPicker = () => {
             {played != null && (
                 <Button 
                     sx={{color:"white", width:"100%", marginTop:"20px"}}
-                    onClick={() => {
-                        setPlayed(null);
-                    }}
+                    onClick={handleReset}
                 >
                     Reset
                 </Button>
